@@ -42,20 +42,24 @@ Ciao
 END RequestId: <...>
 REPORT RequestId: <...>  Duration: 0.97 msBilled Duration: 1 ms   Memory Size: 1024 MB    Max Memory Used: 37 MB
 ```
+
+## Per tutte le lambda create
 Gestione dei log da AWS lambda dentro il Pannello di controllo nelle chiamate ed esecuzioni e su monitoraggio si vedono i log in CloudWatch Logs InsightsInfo
 Oppure da riga di comando con
 ```
-sls logs -f hello --startTime 5h
+$ sls logs -f <nome> --startTime 5h
 ```
 per vedere le ultime 5 ore oppure in tail con il comando
 ```
-sls logs -f hello -t 
+$ sls logs -f <nome> -t 
 ```
-Per rimuovere tutto basta
+Per rimuovere tutto basta lanciare il comando da dentro la cartella della lambda
 ```
-sls remove
+$ sls remove
 ```
 questo comando rimuove la lambda, i bucket s3, i log e le dipendenze (non l'utenza IAM serverless-admin)
+
+
 
 ## License
 **Free Software, Hell Yeah!**

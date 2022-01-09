@@ -14,15 +14,6 @@ Poi io mi sono creato un git per questi esempi su
 ```
 git@github.com:alnao/AwsLambdaExamples.git
 ```
-## Lambda-example1-py
-Vedere file cartella del progetto
-
-## java-maven-example1
-Vedere file cartella del progetto
-
-## nodejs-example1
-Vedere file cartella del progetto
-
 
 
 ## License
