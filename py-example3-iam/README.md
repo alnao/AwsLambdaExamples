@@ -6,8 +6,6 @@ Creazione con comando e template https://www.serverless.com/framework/docs/provi
 $ sls create --template aws-python3 --path py-example3-iam
 ```
 
-## OLD
-
 Modifica del file `handler.py` con il codice della lambda
 > Prestare attenzione che i tab non devono esserci ma devono essere 4 spazi.
 ```
