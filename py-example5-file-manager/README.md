@@ -10,6 +10,11 @@ To use serverless-python-requirement (like npm install)
 $ serverless plugin install -n serverless-python-requirements
 ```
 
+For vesion2 of serverless must use a version2 of pacakge
+```
+npm install -g serverless@2.72.3
+```
+
 To create 
 
 ```
