@@ -5,7 +5,12 @@ Creazione con comando e template https://www.serverless.com/framework/docs/provi
 ```
 $ sls create --template aws-python3 --path py-example4-enviroments-variables
 ```
- 
+
+Per la versione 2 di serverless usare la versione del pacchetto corrispondente
+```
+npm install -g serverless@2.72.3
+```
+
 Modifica del file `handler.py` con il codice della lambda
 > Prestare attenzione che i tab non devono esserci ma devono essere 4 spazi.
 ```
