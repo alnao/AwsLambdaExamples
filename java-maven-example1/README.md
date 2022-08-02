@@ -1,83 +1,23 @@
-# AwsLambdaExamples
+# AwsLambdaExamples Java
 
-## java-maven-example1
-Creazione con comando e template https://www.serverless.com/framework/docs/providers/aws/cli-reference/create
-```
-$ sls create --template aws-java-maven --path java-maven-example1
-```
-E crea 3 classi e un paio di file
-```
-		ignore
-		pom.xml
-		serverless.yml --> servizio diverso ma uguale al resto
-		src/main/java/com/serverless/
-			ApiGatewayReasponse.java
-			Response.java
-			Handler.java
-```
+## Example1
+In questo articolo sar‡ esposto il metodo base e "manuale" per creare funzioni lambda a titolo di esempio per mostrare nel dettaglio ogni singolo componente dell'architettura, in successivi articoli saranno esposti i metodi pi˘ automatici grazie ad AWS CLI, AWS SAM e AWS SDK che permettono al programmatore di saltare alcuni passaggi manuali che vengono eseguiti dai tool messi a disposizione dalla piattaforma.
+Il primo passo Ë creare un progetto Java con Maven, questo Ë possibile sia da Eclipse sia da MS Code, nel file pom.xml bisogna aggiungere alcune dipendenze necessarie per la compilazione
+Oppure, nella procedura gruidata di Eclipse, Ë possibile selezionare il tipo "aws-lambda-s3-example". Quello che bisogna creare Ë una classe e un metodo specifici che poi saranno il corpo della funzione lambda, in questo caso la classe deve implementare RequestHandler che ha due archetipi: l'elenco scatenante in input e il tipo di output della funzione, infatti poi bisogna definire una funzione che i due tipi in ingresso e in uscita
 
+### To compile
+'''mvn pacakge'''
+oppure lanciando la procedura guidata di ecplise mettendo "pacakge" come "goals", il comando va a creare un file jar all'interno della cartella target, questo pacchetto Ë pronto per esser rilaciato in AWS.
 
+### Deploy in AWS
+Nella console di AWS, nel servizio lambda si devono eseguire i seguenti passi
+Nella console di AWS, nel servizio lambda si devono eseguire i seguenti passi
+- creare manualmente una nuova funzione selezionando il nome e il tipo "Java 8 on Amazon Linux 1"
+- caricare il jar, selezionado il file dopo aver premuto la tendina "Upload from" nella vista code
+- impostare la classe nella sezione "Runtime settings" nella vista code, inserendo il valore nel tipo pacakge::metodo, per esempio "it.alnao.lambda.examples.Esample1::handleRequest"
+- impostare memoria e timeout nella scheda General nella vista Configuration, di default i valori sono 512Mb e 15 secondi rispettivamente
+- impostare trigger e permission se necessario, in questo primo esempio non sono previsti
 
-
-
-
-
-## OLD
-Creazione con comando e template https://www.serverless.com/framework/docs/providers/aws/cli-reference/create
-```
-$ sls create --template aws-python3 --path py-example1
-```
-Modifica del file `handler.py`
-```
-def hello(event, context):
-	print("Ciao");
-	return "Ciao example1 py";
-```
-> Prestare attenzione che i tab non devono esserci ma devono essere 4 spazi.
-
-Modifica al file `serverless.yml` (aggiunte le ultime 2 se non presenti, occhio alla regione che bisogna indicarla con precisione)
-```
-provider:
-  name: aws
-  runtime: python2.7
-  lambdaHashingVersion: 20201221
-  profile: serverless-admin
-  region: us-east-1
-```
-Eseguire il deploy la prima volta con 
-```
-$ sls deploy -v
-```
-oppure deploy successivi della sola funzione specifica con
-```
-$ sls deploy function -f hello
-```
-il secondo √® pi√π veloce perch√® deploya solo la funzione specifica.
-Esito del deploy indica tutte le info
-Dopo il deploy lanciare da console oppure lanciare da CLI con
-```
-$ sls invoke -f hello -l
------------------------------------------------------------
-START RequestId: 99d4d1a9-b5db-4257-9b0c-ba00fc83c1a5 Version: $LATEST
-Ciao
-END RequestId: 99d4d1a9-b5db-4257-9b0c-ba00fc83c1a5
-REPORT RequestId: 99d4d1a9-b5db-4257-9b0c-ba00fc83c1a5  Duration: 0.97 msBilled Duration: 1 ms   Memory Size: 1024 MB    Max Memory Used: 37 MB
-```
-Gestione dei log da AWS lambda dentro il Pannello di controllo nelle chiamate ed esecuzioni e su monitoraggio si vedono i log in CloudWatch Logs InsightsInfo
-Oppure da riga di comando con
-```
-sls logs -f hello --startTime 5h
-```
-per vedere le ultime 5 ore oppure in tail con il comando
-```
-sls logs -f hello -t 
-```
-Per rimuovere tutto basta
-```
-sls remove
-```
-questo comando rimuove la lambda, i bucket s3, i log e le dipendenze (non l'utenza IAM serverless-admin)
-
-## License
-**Free Software, Hell Yeah!**
-Documento inizialmente creato con https://dillinger.io/ poi modificato a mano
+### Test
+Per provare manualmente la funzione basta andare nella vista test e lanciare il bottone "test", il risultato sar‡ un messaggio "OK" e aprendo i dettagli si potr‡ vedere anche il messaggio scritto nella stream di output.
+Nella vista monitor sono disposnibili i grafici di tutte le esecuzioni con il dettaglio di errori e un tab specifico per accedere ai log su CloudWatch.
