@@ -1,3 +1,8 @@
+#AWS-SAM
+.aws-sam
+.project
+*.class
+
 # Logs
 logs
 *.log

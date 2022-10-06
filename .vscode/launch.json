@@ -1,0 +1,39 @@
+{
+    "configurations": [
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "java-maven-example3-vscode:HelloWorldFunction (java8)",
+            "invokeTarget": {
+                "target": "template",
+                "templatePath": "${workspaceFolder}/java-maven-example3-vscode/template.yaml",
+                "logicalId": "HelloWorldFunction"
+            },
+            "lambda": {
+                "payload": {},
+                "environmentVariables": {},
+                "runtime": "java8"
+            }
+        },
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "API java-maven-example3-vscode:HelloWorldFunction (java8)",
+            "invokeTarget": {
+                "target": "api",
+                "templatePath": "${workspaceFolder}/java-maven-example3-vscode/template.yaml",
+                "logicalId": "HelloWorldFunction"
+            },
+            "api": {
+                "path": "/hello",
+                "httpMethod": "get",
+                "payload": {
+                    "json": {}
+                }
+            },
+            "lambda": {
+                "runtime": "java8"
+            }
+        }
+    ]
+}
