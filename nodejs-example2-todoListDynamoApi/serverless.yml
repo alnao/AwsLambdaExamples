@@ -2,7 +2,7 @@ service: nodejs-example2-todoListDynamoApi
 frameworkVersion: '3'
 
 custom:
-  tableName: 'users-table-${sls:stage}'
+  tableName: 'todos-table-${sls:stage}'
 
 provider:
   name: aws
@@ -19,7 +19,7 @@ provider:
             - dynamodb:UpdateItem
             - dynamodb:DeleteItem
           Resource:
-            - Fn::GetAtt: [ UsersTable, Arn ]
+            - Fn::GetAtt: [ TodosTable, Arn ]
   environment:
     TABLE: ${self:custom.tableName}
 
@@ -31,17 +31,45 @@ functions:
           path: todos
           method: post
           cors: true
+  list:
+    handler : lambda/list.listFunction
+    events:
+      - http: 
+          path: todos
+          method: get
+          cors: true
+  get:
+    handler : lambda/list.getFunction
+    events:
+      - http: 
+          path: todos/{id}
+          method: get
+          cors: true
+  delete:
+    handler : lambda/delete.deleteFunction
+    events:
+      - http: 
+          path: todos/{id}
+          method: delete
+          cors: true
+  update:
+    handler : lambda/update.updateFunction
+    events:
+      - http: 
+          path: todos/{id}
+          method: put
+          cors: true
 
 resources:
   Resources:
-    UsersTable:
+    TodosTable:
       Type: AWS::DynamoDB::Table
       Properties:
         AttributeDefinitions:
-          - AttributeName: userId
+          - AttributeName: id
             AttributeType: S
         KeySchema:
-          - AttributeName: userId
+          - AttributeName: id
             KeyType: HASH
         BillingMode: PAY_PER_REQUEST
         TableName: ${self:custom.tableName}

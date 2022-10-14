@@ -3,7 +3,7 @@
 
 ## nodejs-example2-todoListDynamoApi
 
-### Creazione progetto
+### Creazione progetto e primo esempio base
 Comando 
 ```
 $ sls
@@ -43,6 +43,10 @@ $ sls invoke local --function todos
 ```
 Nota: c'è versione con metodo javascript async ma brutta da vedere e quindi meglio usare il modulo con la callback. E prestare attenzione al nome enviroment del nome della tabella che può essere diverso.
 
+# Rimozione dei componenti creati
+```
+$ sls remove
+```
 
 # Serverless Framework Node Express API on AWS
 
