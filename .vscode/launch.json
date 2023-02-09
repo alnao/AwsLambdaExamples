@@ -3,6 +3,41 @@
         {
             "type": "aws-sam",
             "request": "direct-invoke",
+            "name": "java-maven-example06-excel2csv:HelloWorldFunction (java8)",
+            "invokeTarget": {
+                "target": "template",
+                "templatePath": "${workspaceFolder}/java-maven-example06-excel2csv/template.yaml",
+                "logicalId": "HelloWorldFunction"
+            },
+            "lambda": {
+                "payload": {},
+                "environmentVariables": {},
+                "runtime": "java8"
+            }
+        },
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "API java-maven-example06-excel2csv:HelloWorldFunction (java8)",
+            "invokeTarget": {
+                "target": "api",
+                "templatePath": "${workspaceFolder}/java-maven-example06-excel2csv/template.yaml",
+                "logicalId": "HelloWorldFunction"
+            },
+            "api": {
+                "path": "/hello",
+                "httpMethod": "get",
+                "payload": {
+                    "json": {}
+                }
+            },
+            "lambda": {
+                "runtime": "java8"
+            }
+        },
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
             "name": "java-maven-example05-sqs-get:HelloWorldFunction (java11)",
             "invokeTarget": {
                 "target": "template",
