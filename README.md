@@ -46,7 +46,7 @@ $ sls
 ```
 
 ## Esempi
-- **java-maven-example01-console**: lambda in Java creata con Maven. Rilasio da Console, AWS-CLI-SAM oppure AWS-CLI (senza SAM)
+- **java-maven-example01-console**: lambda in Java creata con Maven. Comandi per il rilascio da ConsoleWeb, AWS-CLI-SAM oppure AWS-CLI (senza SAM)
 
 ## Esempi in fase di revisione
 - java-maven-example02-eclipse

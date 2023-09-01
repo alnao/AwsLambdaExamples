@@ -1,14 +1,11 @@
-# Aws Lambda Examples
-AWS Lambda Examples - vedere i prerequisiti nel README generale
-
-## Java-Maven Example01 console
-Semplice lambda di esempio creata con Maven e caricata da console o con SAM.
+# Java-Maven Example01 console
+Semplice lambda in lingiaggio Java creata con Maven e rilasciata da console web o con SAM. Vedere i prerequisiti nel README generale
 
 
 Riferimento: [documentazione ufficiale AWS Lambda Java](https://docs.aws.amazon.com/lambda/latest/dg/java-package.html)
 
 
-### Come creare il progetto
+## Come creare il progetto
 See [Bootstrapping a java lambda](https://aws.amazon.com/it/blogs/developer/bootstrapping-a-java-lambda-application-with-minimal-aws-java-sdk-startup-time-using-maven/)
 Comando maven per la creazione:
 
@@ -19,13 +16,13 @@ mvn archetype:generate -DarchetypeGroupId=software.amazon.awssdk -DarchetypeArti
 Al termine nel progetto si possono commentare un po' di oggetti tra cui i riferimenti alla classe DependencyFactory che non serve. Nella classe App.java aggiunto un log.
 
 
-#### Building the project
+## Building
 Per compilare il progetto si usa il comando standard maven:
 ```
 mvn clean install
 ```
 
-#### Testing it locally
+### Testing locally
 Per testare localemente si può usare 
 ```
 sam local invoke
@@ -33,7 +30,7 @@ sam local invoke
 In caso di errore "Running AWS SAM projects locally requires Docker. Have you got it installed and running?" bisogna installare docker nel sistema.
 
 
-### Deploy da console
+## Deploy da console
 Per caricare in un bucket il jar crato usare il comando
 ```
 aws s3 cp ./target/java-maven-example01-console-1.0-SNAPSHOT.jar s3://alberto-input
@@ -48,7 +45,7 @@ it.alnao.App::handleRequest
 Nota: su permissioni è già abilitato a CloudWatch di default così i log finiranno su CloudWatch, eseguendo test da console si vede il risultato afferamativo e si può vedere il log su CloudWatch. La rimozione della lambda è da fare a mano da console.
 
 
-### Deploy con SAM-CloudFormation
+## Deploy con SAM-CloudFormation
 Il comando per eseguire il deploy con SAM è:
 ```
 sam deploy --guided
@@ -65,14 +62,14 @@ Successfully created/updated stack - java-maven-example01-sam in eu-west-1
 See [Deploying Serverless Applications](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-deploying.html) for more info.
 
 
-#### Per rimuovere con SAM-CloudFormation
+### Per rimuovere con SAM-CloudFormation
 Per rimuovere lo stack creato con SAM-CloudFormation:
 ```
 sam delete
 ```
 
 
-### Deploy con CLI
+## Deploy con CLI
 Anche se non da usare, sono elencati i comandi AWS-CLI pura senza uso di SAM. 
 See [documentazione AWS-CLI](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-awscli.html)
 and [documentazione AWS Lambda](https://docs.aws.amazon.com/cli/latest/reference/lambda/create-function.html)
