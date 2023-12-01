@@ -46,11 +46,11 @@ $ sls
 ```
 
 ## Esempi
-- **java-maven-example01-console**: lambda in Java creata con Maven. Comandi per il rilascio da ConsoleWeb, AWS-CLI-SAM oppure AWS-CLI (senza SAM)
+- **java-maven-example01-console**: lambda in Java creata con Maven via riga di comando. Comandi per il rilascio da ConsoleWeb, AWS-CLI-SAM oppure AWS-CLI (senza SAM)
+- **java-maven-example02-eclipse**: lambda in Java creata con Mavan in Eclipse 
+- **java-maven-example03-vscode**: lambda in Java creata con Maven in Visual Studio Code e plugin AWS Toolkit
 
 ## Esempi in fase di revisione
-- java-maven-example02-eclipse
-- java-maven-example03-vscode
 - java-maven-example04-s3signature
 - java-maven-example05-sqs
 - java-maven-example06-excel2csv
@@ -68,35 +68,11 @@ $ sls
 - py-example-g1
 
 
+
 # AlNao.it
-Nessun contenuto in questo repository è stato creato con IA o automaticamente, sono stati tutti scritti con molta pazienza da Alberto Nao. 
-Se il codice è stato preso, anche parzialmente, da altri siti/progetti è sempre indicata la fonte.
-Per maggior informazioni visitare il sito [alnao.it](https://www.alnao.it/).
+Nessun contenuto in questo repository è stato creato con IA o automaticamente, tutto il codice è stato scritto con molta pazienza da Alberto Nao. Se il codice è stato preso da altri siti/progetti è sempre indicata la fonte. Per maggior informazioni visitare il sito [alnao.it](https://www.alnao.it/).
 
 ## License
-**Free Software, Hell Yeah!**
-See [MIT](https://it.wikipedia.org/wiki/Licenza_MIT)
-
-
-Copyright (c) 2023 AlNao.it
-
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
+Public projects 
+<a href="https://it.wikipedia.org/wiki/GNU_General_Public_License"  valign="middle"><img src="https://img.shields.io/badge/License-GNU-blue" style="height:22px;"  valign="middle"></a> 
+*Free Software!*

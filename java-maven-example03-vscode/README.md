@@ -25,15 +25,19 @@ $ sam build
 ```
 che crea una sottocatella .aws-sam con dentro il compilato da maven pronto per essere rilasciato con il comando
 ```
-$ sam deploy --guided
+$ sam deploy --guided 
 ```
-con il quale è possibile indicare ad AWS alcuni parametri come il nome del template su CloudFormation e poi viene salvato un file samconfig.toml con le configurazioni salvate.
-Una volta creato si può andare nella console web per vedere la lambda e il suo template CloudFormation, inoltre è possibile usare il toolkit per eseguire la lambda.
+
+con il quale è possibile indicare ad AWS alcuni parametri come il nome del template su CloudFormation e poi viene salvato un file samconfig.toml con le configurazioni salvate. Una volta creato si può andare nella console web per vedere la lambda e il suo template CloudFormation, inoltre è possibile usare il toolkit per eseguire la lambda. 
+
+
 Per rimuovere la lambda basta lanciare uno dei comandi: 
 ```
-aws cloudformation delete-stack --stack-name java-maven-example3
-sam delete --stack-name java-maven-example3
+aws cloudformation delete-stack --stack-name es03j
+sam delete --stack-name es03j
 ```
+
+
 Il secondo metodo per eseguire il rilascio è usare il toolkit: dal riquadro dei comandi bisogna selezionare la voce
 ```
 > AWS deploy sam application
@@ -48,7 +52,7 @@ Per distruggere e rimuovere la lambda è possibile selezionare il template Cloud
 La guida completa è disponibile nel sito ufficiale (https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/welcome.html)
 
 
-# Java-maven-example3-vscode
+# java-maven-example03-vscode
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
 
@@ -107,7 +111,7 @@ You can find your API Gateway Endpoint URL in the output values displayed after 
 Build your application with the `sam build` command.
 
 ```bash
-java-maven-example3-vscode$ sam build
+java-maven-example03-vscode$ sam build
 ```
 
 The SAM CLI installs dependencies defined in `HelloWorldFunction/pom.xml`, creates a deployment package, and saves it in the `.aws-sam/build` folder.
@@ -117,14 +121,14 @@ Test a single function by invoking it directly with a test event. An event is a 
 Run functions locally and invoke them with the `sam local invoke` command.
 
 ```bash
-java-maven-example3-vscode$ sam local invoke HelloWorldFunction --event events/event.json
+java-maven-example03-vscode$ sam local invoke HelloWorldFunction --event events/event.json
 ```
 
 The SAM CLI can also emulate your application's API. Use the `sam local start-api` to run the API locally on port 3000.
 
 ```bash
-java-maven-example3-vscode$ sam local start-api
-java-maven-example3-vscode$ curl http://localhost:3000/
+java-maven-example03-vscode$ sam local start-api
+java-maven-example03-vscode$ curl http://localhost:3000/
 ```
 
 The SAM CLI reads the application template to determine the API's routes and the functions that they invoke. The `Events` property on each function's definition includes the route and method for each path.
@@ -148,7 +152,7 @@ To simplify troubleshooting, SAM CLI has a command called `sam logs`. `sam logs`
 `NOTE`: This command works for all AWS Lambda functions; not just the ones you deploy using SAM.
 
 ```bash
-java-maven-example3-vscode$ sam logs -n HelloWorldFunction --stack-name java-maven-example3-vscode --tail
+java-maven-example03-vscode$ sam logs -n HelloWorldFunction --stack-name java-maven-example03-vscode --tail
 ```
 
 You can find more information and examples about filtering Lambda function logs in the [SAM CLI Documentation](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-logging.html).
@@ -158,7 +162,7 @@ You can find more information and examples about filtering Lambda function logs 
 Tests are defined in the `HelloWorldFunction/src/test` folder in this project.
 
 ```bash
-java-maven-example3-vscode$ cd HelloWorldFunction
+java-maven-example03-vscode$ cd HelloWorldFunction
 HelloWorldFunction$ mvn test
 ```
 
@@ -167,7 +171,7 @@ HelloWorldFunction$ mvn test
 To delete the sample application that you created, use the AWS CLI. Assuming you used your project name for the stack name, you can run the following:
 
 ```bash
-aws cloudformation delete-stack --stack-name java-maven-example3-vscode
+aws cloudformation delete-stack --stack-name java-maven-example03-vscode
 ```
 
 ## Resources
